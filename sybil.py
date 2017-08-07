@@ -15,6 +15,8 @@ class Sybil(telepot.helper.ChatHandler):
         self.decks = {}
         self.deck = {}
         self.from_id = 0
+        temp_deck = TarotDeck('jodocamoin')
+        self.deck_ref = temp_deck.deckRef
 
     def majors(self):
         self.sender.sendMessage('Setting your deck to Majors only')
@@ -44,7 +46,8 @@ class Sybil(telepot.helper.ChatHandler):
         if from_id not in self.decks.keys():
             self.deck = {'type': 'jodocamoin', 'composition': 'full_deck', 'deck_object': TarotDeck('jodocamoin')}
             self.decks[from_id] = self.deck
-            self.set_deck()
+            self.deck['deck_object'] = TarotDeck(self.deck['type'])
+            shuffle(self.deck['deck_object'])
         else:
             self.deck = self.decks[from_id]
 
@@ -59,7 +62,7 @@ class Sybil(telepot.helper.ChatHandler):
                 self.deck['composition'] = 'majors'
                 self.set_deck()
 
-            elif command_tokens[0] in ('/minors', '/majors@sybilbot'):
+            elif command_tokens[0] in ('/minors', '/minors@sybilbot'):
                 self.deck['composition'] = 'minors'
                 self.set_deck()
             
@@ -73,7 +76,7 @@ class Sybil(telepot.helper.ChatHandler):
             
             elif command_tokens[0] in ('/settype', '/settype@sybilbot'):
                 try:
-                    if command_tokens[1] not in self.deck['deck_object'].deckRef.keys():
+                    if command_tokens[1] not in self.deck_ref.keys():
                         self.sender.sendMessage('Invalid deck type')
                     else:
                         self.deck['type'] = command_tokens[1]
@@ -96,8 +99,8 @@ class Sybil(telepot.helper.ChatHandler):
             
             elif command_tokens[0] in ('/listtypes', '/listtypes@sybilbot'):
                 decklist = ""
-                for entry in self.deck['deck_object'].deckRef.keys():
-                    decklist += "{}: {}\n".format(entry, self.deck['deck_object'].deckRef[entry][3])
+                for entry in self.deck_ref.keys():
+                    decklist += "{}: {}\n".format(entry, self.deck_ref[entry][3])
                 self.sender.sendMessage(decklist)
             
             elif command_tokens[0] in ('/help', '/help@sybilbot'):
