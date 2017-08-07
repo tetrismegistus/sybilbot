@@ -29,7 +29,7 @@ class Sybil(telepot.helper.ChatHandler):
         self.deck['deck_object'] = TarotDeck(self.deck['type'])
 
     def set_deck(self):
-        if self.deck['composition'] == 'majors:':
+        if self.deck['composition'] == 'majors':
             self.majors()
         elif self.deck['composition'] == 'minors':
             self.minors()
