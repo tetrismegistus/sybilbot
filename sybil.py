@@ -118,8 +118,7 @@ class Sybil(telepot.helper.ChatHandler):
             self.decks[from_id] = self.deck
 
 if __name__ == '__main__':
-    # token = sys.argv[1]
-    token = '358115353:AAHsd-W_3jiYUXg_sABz5JIwkiR5yHAnm-A'
+    token = sys.argv[1]
     sybil = telepot.DelegatorBot(token, [pave_event_space()(per_chat_id(), create_open, Sybil, timeout=600)])
     MessageLoop(sybil).run_as_thread()
     while 1:
