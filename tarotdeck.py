@@ -29,9 +29,11 @@ class TarotDeck:
         self.major_image = path + 'majors/{}.jpg'
 
         suitDict = {'traditional': 'swords staves coins cups'.split(),
-                    'riderwaite': 'swords wands pentacles cups'.split()}
+                    'riderwaite': 'swords wands pentacles cups'.split(),
+                    'crowleythoth': 'swords wands disks cups'.split()}
 
-        courtDict = {'traditional': 'Page Queen King Knight'.split()}
+        courtDict = {'traditional': 'Page Queen King Knight'.split(),
+                     'crowleythoth': 'Princess Prince Queen Knight'.split()}
 
         trumpDict = {'marseille': ['The Fool', 'The Magician', 'The Popess', 'The Empress', 'The Emperor',
                                    'The Pope', 'The Lover', 'The Chariot', 'Justice', 'The Hermit',
@@ -42,17 +44,25 @@ class TarotDeck:
                                     'The Hierophant', 'The Lovers', 'The Chariot', 'Strength', 'The Hermit',
                                     'The Wheel of Fortune', 'Justice', 'The Hanged Man', 'Death',
                                     'Temperance', 'The Devil', 'The Tower', 'The Star', 'The Moon',
-                                    'The Sun', 'Judgement', 'The World']}
+                                    'The Sun', 'Judgement', 'The World']
+                     'crowleythoth': ['The Fool', 'The Magus', 'The Priestess', 'The Empress', 'The Emperor',
+                                      'The Hierophant', 'The Lovers', 'The Chariot', 'Adjustment', 'The Hermit',
+                                      'Fortune', 'Lust', 'The Hanged Man', 'Death', 'Art', 'The Devil',
+                                      'The Tower', 'The Star', 'The Moon', 'The Sun', 'The Aeon', 'The Universe'}
 
         # 0 = suits, 1 = courts, 2 = trumps, 3 = description
         self.deckRef = {'jodocamoin': [suitDict['traditional'], 
                                        courtDict['traditional'], 
                                        trumpDict['marseille'],
                                        "A Marseille deck by Jodorowsky & Camoin"],
-                   'riderwaitesmith': [suitDict['riderwaite'], 
-                                       courtDict['traditional'], 
-                                       trumpDict['riderwaite'],
-                                       "The Rider-Waite-Smith deck"]}
+                        'riderwaitesmith': [suitDict['riderwaite'], 
+                                            courtDict['traditional'], 
+                                            trumpDict['riderwaite'],
+                                            "The Rider-Waite-Smith deck"],
+                        'crowleythoth': [suitDict['crowleythoth'],
+                                         courtDict['crowleythoth'],
+                                         trumpDict['crowleythoth'],
+                                         "The Crowley Thoth deck"]}
 
         self.numerals = [str(n) for n in range(0, 22)]
         self.ranks = ['Ace'] + [str(n) for n in range(2, 11)] + self.deckRef[deck][1]
