@@ -44,11 +44,11 @@ class TarotDeck:
                                     'The Hierophant', 'The Lovers', 'The Chariot', 'Strength', 'The Hermit',
                                     'The Wheel of Fortune', 'Justice', 'The Hanged Man', 'Death',
                                     'Temperance', 'The Devil', 'The Tower', 'The Star', 'The Moon',
-                                    'The Sun', 'Judgement', 'The World']
+                                    'The Sun', 'Judgement', 'The World'],
                      'crowleythoth': ['The Fool', 'The Magus', 'The Priestess', 'The Empress', 'The Emperor',
                                       'The Hierophant', 'The Lovers', 'The Chariot', 'Adjustment', 'The Hermit',
                                       'Fortune', 'Lust', 'The Hanged Man', 'Death', 'Art', 'The Devil',
-                                      'The Tower', 'The Star', 'The Moon', 'The Sun', 'The Aeon', 'The Universe'}
+                                      'The Tower', 'The Star', 'The Moon', 'The Sun', 'The Aeon', 'The Universe']}
 
         # 0 = suits, 1 = courts, 2 = trumps, 3 = description
         self.deckRef = {'jodocamoin': [suitDict['traditional'], 
