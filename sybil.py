@@ -52,7 +52,8 @@ class Sybil(telepot.helper.ChatHandler):
             self.deck = self.decks[from_id]
 
         if content_type == 'text':
-            pprint(message)
+            print('Command from {} in {}'.format(message['from']['username']message['chat']['id']))
+            print(message['text'])
             
             message_text = message['text']
             message_lower = message_text.lower()
