@@ -52,7 +52,7 @@ class Sybil(telepot.helper.ChatHandler):
             self.deck = self.decks[from_id]
 
         if content_type == 'text':
-            print('Command from {} in {}'.format(message['from']['username']message['chat']['id']))
+            print('Command from {} in {}'.format(message['from']['username'], message['chat']['id']))
             print(message['text'])
             
             message_text = message['text']
@@ -96,6 +96,7 @@ class Sybil(telepot.helper.ChatHandler):
                     self.sender.sendPhoto(open(card.image, 'rb'), caption=caption)
                 else:
                     self.sender.sendMessage('The deck is out of cards!')
+                print(card)
                 self.sender.sendMessage('Your deck has {} cards left'.format(len(self.deck['deck_object'])))
             
             elif command_tokens[0] in ('/listtypes', '/listtypes@sybilbot'):
