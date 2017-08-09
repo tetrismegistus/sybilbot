@@ -105,8 +105,8 @@ class Sybil(telepot.helper.ChatHandler):
             
             elif command_tokens[0] in ('/help', '/help@sybilbot'):
                 self.sender.sendMessage("All commands are prefixed by a forward slash (/), with no spaces between the" +
-                                        " slash and your command.  Currently I only deal from one deck.  Drawn cards " +
-                                        "remain out of the deck until either someone issues a 'Majors', 'Minors', " +
+                                        " slash and your command. Everyone has a seperate deck, which disappears after " + 
+                                        "10 minutes of inactivity. Dealt cards remain out of the deck until you issue a 'Majors', 'Minors', " +
                                         "'Full', 'Settype', or 'Shuffle' command.\n " +
                                         "These are the commands I currently understand:\n\n" +
                                         "Majors -- Set deck to deal only from the Major Arcana\n" +
