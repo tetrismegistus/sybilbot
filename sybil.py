@@ -95,7 +95,7 @@ class Sybil(telepot.helper.ChatHandler):
                     self.deck['composition'] = 'full_deck'
                     self.set_deck()
                     logging.info('{0} set deck as {1}'.format(sender, command_tokens[1]))
-                except IndexError:
+                except KeyError:
                     logging.info('{} requested an invalid deck'.format(sender))
                     self.sender.sendMessage('Invalid deck type')
 
