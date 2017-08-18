@@ -90,14 +90,15 @@ class Sybil(telepot.helper.ChatHandler):
                 self.sender.sendMessage('Shuffling the deck...')
             
             elif command_tokens[0] in ('/settype', '/settype@sybilbot'):
-                try:
+                
+                if command_tokens[1] not in self.deck_ref.keys():
+                    logging.info('{} requested an invalid deck'.format(sender))
+                    self.sender.sendMessage('Invalid deck type')
+                elif:
                     self.deck['type'] = command_tokens[1]
                     self.deck['composition'] = 'full_deck'
                     self.set_deck()
                     logging.info('{0} set deck as {1}'.format(sender, command_tokens[1]))
-                except KeyError:
-                    logging.info('{} requested an invalid deck'.format(sender))
-                    self.sender.sendMessage('Invalid deck type')
 
             elif command_tokens[0] in ('/draw', '/draw@sybilbot'):
                 if len(self.deck['deck_object']) > 0:
